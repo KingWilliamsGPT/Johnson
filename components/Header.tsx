@@ -35,7 +35,7 @@ export default function Header() {
                             <span className="absolute -bottom-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-zinc-800 text-white text-sm rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                                 Home
                             </span>
-                        </a>
+                        </Link>
                         <div className="h-5 w-[1px] bg-zinc-200 md:mx-2"></div>
                     </div>
 
@@ -50,7 +50,7 @@ export default function Header() {
                             <span className="absolute -bottom-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-zinc-800 text-white text-sm rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                                 Github
                             </span>
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Resume */}
@@ -65,7 +65,7 @@ export default function Header() {
                             <span className="absolute -bottom-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-zinc-800 text-white text-sm rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                                 Resume
                             </span>
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Theme Toggle */}
@@ -103,7 +103,7 @@ export default function Header() {
                     >
                         <span className="hidden md:flex">Jowis Studio</span>
                         <span className="md:hidden">Jowis</span>
-                    </a>
+                    </Link>
                 </nav>
             </div>
         </header>
