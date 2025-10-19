@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Link from "next/link";
 import { useSound } from "@/hooks/useSound";
 import { useSettingsStore } from "@/store/useSettingsStore";
 
@@ -25,7 +26,7 @@ export default function Header() {
                 <nav className="liquidGlass-text flex items-center gap-1 p-[6px] relative z-10">
                     {/* Home */}
                     <div className="flex items-center">
-                        <a
+                        <Link
                             target="_self"
                             className="p-[15px] hover:px-[20px] hover:mr-1 text-zinc-600 hover:text-zinc-900 relative group transition-all duration-[300ms] hover:bg-[#ededed]/20 rounded-[15px]"
                             href="/"
@@ -40,7 +41,7 @@ export default function Header() {
 
                     {/* GitHub */}
                     <div className="flex items-center">
-                        <a
+                        <Link
                             target="_self"
                             className="p-[15px] hover:px-[20px] hover:mr-1 text-zinc-600 hover:text-zinc-900 relative group transition-all duration-[300ms] hover:bg-[#ededed]/20 rounded-[15px]"
                             href="/github"
@@ -54,7 +55,7 @@ export default function Header() {
 
                     {/* Resume */}
                     <div className="flex items-center">
-                        <a
+                        <Link
                             target="_blank"
                             download=""
                             className="p-[15px] hover:px-[20px] hover:mr-1 text-zinc-600 hover:text-zinc-900 relative group transition-all duration-[300ms] hover:bg-[#ededed]/20 rounded-[15px]"
@@ -95,7 +96,7 @@ export default function Header() {
                     </div>
 
                     {/* Blog Button */}
-                    <a
+                    <Link
                         className="bg-black text-white py-[14px] px-[20px] md:px-[22px] rounded-[14px] text-sm hover:opacity-90 duration-[300ms] transition-all hover:px-[28px] ml-2 md:ml-1"
                         href="https://www.jowistudio.com/"
                         target="_blank"
