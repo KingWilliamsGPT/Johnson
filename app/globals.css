@@ -129,7 +129,7 @@
   transition: all .4s cubic-bezier(.175, .885, .32, 2.2);
   display: flex;
   position: relative;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .liquidGlass-effect {
@@ -140,14 +140,14 @@
   isolation: isolate;
   position: absolute;
   inset: 0;
-  overflow: hidden
+  overflow: hidden;
 }
 
 .liquidGlass-tint {
   z-index: 1;
   background: #ffffff40;
   position: absolute;
-  inset: 0
+  inset: 0;
 }
 
 .liquidGlass-shine {
@@ -155,10 +155,56 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  box-shadow: inset 2px 2px 1px #ffffff80, inset -1px -1px 1px 1px #ffffff80
+  box-shadow: inset 2px 2px 1px #ffffff80, inset -1px -1px 1px 1px #ffffff80;
 }
 
 .liquidGlass-text {
   z-index: 3;
-  color: #000
+  color: #000;
+}
+
+.liquidGlass-wrapper:hover {
+  transform: translateY(-2px);
+}
+
+.liquidGlass-wrapper:active {
+  transform: translateY(0);
+}
+
+.music-icon-container {
+  /* animation: float 3s ease-in-out infinite; */
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.ripple {
+  animation: ripple 1s ease-out infinite;
+}
+
+
+a,
+button {
+  @cursor-pointer;
 }

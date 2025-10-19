@@ -2,9 +2,13 @@
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import HALO from "vanta/dist/vanta.halo.min";
+import { useSound } from "@/hooks/useSound";
+import { useSettingsStore } from "@/store/useSettingsStore";
 
 export default function Hero() {
     const [vantaEffect, setVantaEffect] = useState(null);
+    const { isSoundOn, playSound, playClickSound, playHoverSound, playToggleSound } = useSound();
+    const { isDarkMode, toggleTheme } = useSettingsStore();
     const vantaRef = useRef(null);
     const avatarRef = useRef(null);
     // track avatar position
@@ -78,15 +82,15 @@ export default function Hero() {
     }, [vantaEffect, pos]);
 
     return (
-        <div className="relative min-h-screen w-full overflow-hidden">
+        <div className="relative min-h-screen w-full overflow-hidden cursor-cell">
             {/* Vanta Background Layer */}
             <div ref={vantaRef} className="absolute inset-0 z-0" />
 
-            {/* Net Overlay */}
-            <div className="absolute inset-0 z-10 opacity-100 bg-white/10">
+            {/* Net background */}
+            <div className={"fixed inset-0 z-10 opacity-100 " + (isDarkMode ? "bg-white/10" : "bg-white")}>
                 <img
                     src="/images/backgrounds/net.svg"
-                    alt="Overlay"
+                    alt=""
                     className="w-full h-full object-cover"
                 />
             </div>
@@ -96,12 +100,12 @@ export default function Hero() {
                 {/* Avatar with Badge */}
                 <div
                     ref={avatarRef}
-                    className="absolute w-48 h-48 z-20 rounded-full border-4 border-white bg-white shadow-xl transition-transform duration-200 ease-out"
+                    className="absolute w-48 h-48 z-20 rounded-full border-4 border-white bg-white shadow-xl ease-out hover:scale-125 transition-transform duration-300"
                 >
                     <img
                         src="/images/avatar.png"
                         alt="Avatar"
-                        className="w-full h-full object-cover object-top rounded-full cursor-pointer"
+                        className="w-full h-full object-cover object-top rounded-full cursor-pointer hover:cursor-zoom-in"
                     />
                     {/* Verification Badge */}
                     <div className="absolute z-20 top-[10px] right-[10px] w-7 h-7 bg-white rounded-full flex items-center justify-center shadow-md">
@@ -114,6 +118,6 @@ export default function Hero() {
                     Meet Joshnson Ayanda
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
