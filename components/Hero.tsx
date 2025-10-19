@@ -87,7 +87,7 @@ export default function Hero() {
             <div ref={vantaRef} className="absolute inset-0 z-0" />
 
             {/* Net background */}
-            <div className={"fixed inset-0 z-10 opacity-100 " + (isDarkMode ? "bg-white/10" : "bg-white")}>
+            <div className={"absolute inset-0 z-10 opacity-100 " + (isDarkMode ? "bg-white/10" : "bg-white")}>
                 <img
                     src="/images/backgrounds/net.svg"
                     alt=""
