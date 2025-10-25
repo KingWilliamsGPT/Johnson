@@ -42,19 +42,19 @@ export default function Header() {
                     {/* GitHub */}
                     <div className="flex items-center">
                         <Link
-                            target="_self"
+                            target="_blank"
                             className="p-[15px] hover:px-[20px] hover:mr-1 text-zinc-600 hover:text-zinc-900 relative group transition-all duration-[300ms] hover:bg-[#ededed]/20 rounded-[15px]"
-                            href="/github"
+                            href="https://www.linkedin.com/in/johnsonayanda/"
                         >
-                            <i className="fa-brands fa-github text-[20px]"></i>
+                            <i className="fa-brands fa-linkedin text-[20px]"></i>
                             <span className="absolute -bottom-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-zinc-800 text-white text-sm rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                                Github
+                                LinkedIn
                             </span>
                         </Link>
                     </div>
 
                     {/* Resume */}
-                    <div className="flex items-center">
+                    {/* <div className="flex items-center">
                         <Link
                             target="_blank"
                             download=""
@@ -66,7 +66,7 @@ export default function Header() {
                                 Resume
                             </span>
                         </Link>
-                    </div>
+                    </div> */}
 
                     {/* Theme Toggle */}
                     <div className="flex items-center">

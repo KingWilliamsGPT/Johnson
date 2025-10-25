@@ -100,7 +100,7 @@ export default function Hero() {
                 {/* Avatar with Badge */}
                 <div
                     ref={avatarRef}
-                    className="absolute w-48 h-48 z-20 rounded-full border-4 border-white bg-white shadow-xl ease-out hover:scale-125 transition-transform duration-300"
+                    className="absolute w-48 h-48 z-20 rounded-full border-4 border-white bg-white shadow-xl ease-out hover:scale-125 active:scale-200 transition-transform duration-300"
                 >
                     <img
                         src="/images/avatar.png"

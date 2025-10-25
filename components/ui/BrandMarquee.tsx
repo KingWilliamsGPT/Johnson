@@ -3,6 +3,13 @@
 import Marquee from "react-fast-marquee";
 import { useSettingsStore } from "@/store/useSettingsStore";
 
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+    subsets: ["latin"],
+    weight: ["700"], // or whatever weight you want
+});
+
 export default function BrandMarquee() {
     // Replace these with your actual brand logos
     const brands = [
@@ -22,11 +29,11 @@ export default function BrandMarquee() {
             <div className="container mx-auto px-4">
                 {/* Section Header */}
                 <div className="text-center mb-12">
-                    <p className="text-sm  uppercase tracking-wider font-semibold mb-2 dark:text-white/70">
+                    <p className="text-sm text-black/70 uppercase tracking-wider font-semibold mb-2 dark:text-white/70">
                         Trusted By
                     </p>
-                    <h2 className="text-3xl md:text-4xl font-bold text-zinc-900 dark:text-white/70">
-                        Brands he has worked with.
+                    <h2 className="text-3xl md:text-4xl font-bold text-black/70 dark:text-white/70">
+                        These <span className={playfair.className} style={{ fontFamily: "Playfair Display, serif" }}>Lovely</span> Brands
                     </h2>
                 </div>
 
