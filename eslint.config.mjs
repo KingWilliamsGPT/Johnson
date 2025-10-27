@@ -33,6 +33,7 @@ const eslintConfig = [
       "react/style-prop-object": "off",
       "react/jsx-props-no-spreading": "off",
       "no-console": "off",
+      "@next/next/no-img-element": "off",
     }
   },
 ];

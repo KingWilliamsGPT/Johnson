@@ -6,7 +6,7 @@ import { useSound } from "@/hooks/useSound";
 import { useSettingsStore } from "@/store/useSettingsStore";
 
 export default function Hero() {
-    const [vantaEffect, setVantaEffect] = useState(null);
+    const [vantaEffect, setVantaEffect] = useState<any>(null);
     const { isSoundOn, playSound, playClickSound, playHoverSound, playToggleSound } = useSound();
     const { isDarkMode, toggleTheme } = useSettingsStore();
     const vantaRef = useRef(null);
