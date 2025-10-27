@@ -1,5 +1,8 @@
 "use client";
+import Link from "next/link";
 import { useSettingsStore } from "@/store/useSettingsStore";
+import { PortfolioItemType } from "@/lib/types";
+
 
 export default function PortfolioDetail({
     title,
@@ -11,7 +14,8 @@ export default function PortfolioDetail({
     type,
     client,
     main_image,
-    other_images
+    other_images,
+    nextItem,
 }: {
     title?: string;
     description?: string;
@@ -23,6 +27,7 @@ export default function PortfolioDetail({
     client?: string;
     main_image?: string;
     other_images?: string[];
+    nextItem?: PortfolioItemType | null;
 }) {
     const { isDarkMode, toggleTheme } = useSettingsStore();
 
@@ -100,7 +105,7 @@ export default function PortfolioDetail({
                         <div className="flex flex-col md:flex-row gap-[1.5rem] md:gap-0 justify-between items-center mb-2">
                             {link && (
                                 <a target="_blank" rel="noopener noreferrer" href={link}>
-                                    <button className="bg-black text-white flex items-center gap-2 px-6 py-3 rounded-[14px] hover:bg-[#121212] transition-all duration-300">
+                                    <button className="bg-black text-white flex items-center gap-2 px-6 py-3 rounded-[14px] hover:bg-[#121212] transition-all duration-300 cursor-pointer">
                                         <span>Visit Project</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-external-link w-5 h-5" aria-hidden="true">
                                             <path d="M15 3h6v6"></path>
@@ -110,22 +115,26 @@ export default function PortfolioDetail({
                                     </button>
                                 </a>
                             )}
-                            <div className="flex gap-4">
-                                <a href="/projects/olamide">
-                                    <button className="flex items-center gap-2 bg-[#f2f2f2] hover:bg-[#e5e5e5] dark:text-black px-6 py-3 rounded-[14px] transition-all duration-300">
-                                        <span>Next</span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-right w-5 h-5" aria-hidden="true">
-                                            <path d="m9 18 6-6-6-6"></path>
-                                        </svg>
-                                    </button>
-                                </a>
-                            </div>
+                            {
+                                nextItem && (
+                                    <div className="flex gap-4">
+                                        <Link href={`/portfolio/${nextItem.slug}`} key={nextItem.slug}>
+                                            <button className="flex items-center gap-2 bg-[#f2f2f2] hover:bg-[#e5e5e5] dark:text-black px-6 py-3 rounded-[14px] transition-all duration-300 cursor-pointer">
+                                                <span>Next</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-right w-5 h-5" aria-hidden="true">
+                                                    <path d="m9 18 6-6-6-6"></path>
+                                                </svg>
+                                            </button>
+                                        </Link>
+                                    </div>
+                                )
+                            }
                         </div>
 
                         {main_image && (
-                            <div className="w-full rounded-[20px] overflow-hidden border-[1.5px] border-[#f2f2f2] bg-[#fafafa] dark:bg-white/10 dark:border-white/10" style={{ boxShadow: "inset 0px 3px 0px 0px rgb(255, 255, 255)" }}>
+                            <div className="w-full rounded-[20px] overflow-hidden border-[1.5px] border-[#f2f2f2] bg-[#fafafa] dark:bg-white/10 dark:border-white/10 cursor-zoom-in" style={{ boxShadow: "inset 0px 3px 0px 0px rgb(255, 255, 255)" }}>
                                 <div className="p-8">
-                                    <div className="relative cursor-pointer" style={{ filter: "drop-shadow(0px 10px 7px rgba(0, 0, 0, 0.25))" }}>
+                                    <div className="relative" style={{ filter: "drop-shadow(0px 10px 7px rgba(0, 0, 0, 0.25))" }}>
                                         <img
                                             alt={title || "Project main image"}
                                             loading="lazy"
@@ -143,7 +152,7 @@ export default function PortfolioDetail({
                         {other_images && other_images.length > 0 && (
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {other_images.map((image, index) => (
-                                    <div key={index} className="rounded-[20px] overflow-hidden border-[1.5px] border-[#f2f2f2] bg-[#fafafa] cursor-pointer dark:bg-white/10 dark:border-white/10" style={{ boxShadow: "inset 0px 3px 0px 0px rgb(255, 255, 255)" }}>
+                                    <div key={index} className="rounded-[20px] overflow-hidden border-[1.5px] border-[#f2f2f2] bg-[#fafafa] cursor-zoom-in dark:bg-white/10 dark:border-white/10" style={{ boxShadow: "inset 0px 3px 0px 0px rgb(255, 255, 255)" }}>
                                         <div className="p-6">
                                             <img
                                                 alt={`${title || "Project"} image ${index + 1}`}

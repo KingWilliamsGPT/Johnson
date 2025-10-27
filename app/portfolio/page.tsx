@@ -42,15 +42,15 @@ export function PortfolioEntry({
 }
 
 
-export default function Portfolio() {
+export default function Page() {
     return (
-        <div className="bg-white dark:bg-[#1b1c26]">
+        <div className="bg-white dark:bg-[#1b1c26] pt-30 pb-30">
             <div className="w-full max-w-[53rem] flex flex-col pt-[58px] px-[1.5rem]  items-center gap-[25px] md:gap-[25px] mx-auto">
                 <div className="flex items-center gap-2 mb-8">
                     <h2 className="text-[32px] text-center font-bold tracking-[-.03em] leading-[110%] text-black dark:text-white/90"><i>Johnson's</i> Portfolio.</h2>
                 </div>
                 <div className="flex flex-col md:grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-                    {defaultPortfolioItems.slice(0, 3).map((item) => (
+                    {defaultPortfolioItems.map((item) => (
                         <PortfolioEntry
                             key={item.slug}
                             link={`/portfolio/${item.slug}`}
@@ -59,16 +59,6 @@ export default function Portfolio() {
                             imageSrc={item.mock_up || ""}
                         />
                     ))}
-                    <div className="col-span-2 w-full">
-                        <Link href="/portfolio">
-                            <button className="mt-4 mx-auto bg-[#000] hover:bg-[#121212] flex items-center rounded-[14px] px-[24px] py-[14px] text-[16px] font-normal text-white text-start no-underline transition-all duration-500 group cursor-pointer">
-                                <span className="flex items-center group-hover:pr-2 font-medium text-[16px] transition-all duration-300">View All</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-chevron-right ml-2 w-5 h-5" aria-hidden="true">
-                                    <path d="m9 18 6-6-6-6"></path>
-                                </svg>
-                            </button>
-                        </Link>
-                    </div>
                 </div>
             </div>
         </div>

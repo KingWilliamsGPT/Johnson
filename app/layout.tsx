@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Provider from "@/providers/Provider";
+import { LoaderProvider } from "@/providers/LoaderProvider";
 import "./globals.css";
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 
@@ -30,7 +31,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-[#1b1c26]`}
       >
-        <Provider>{children}</Provider>
+        <LoaderProvider>
+          <Provider>
+            {children}
+          </Provider>
+        </LoaderProvider>
       </body>
     </html>
   );
